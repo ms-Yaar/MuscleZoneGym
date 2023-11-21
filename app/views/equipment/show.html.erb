@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Rails App</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    .notice-container {
+      background-color: #f4f4f4;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .notice {
+      color: green;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .action-buttons {
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+    }
+
+    .btn-secondary {
+      background-color: #6c757d;
+    }
+
+    .btn-danger {
+      background-color: #dc3545;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="notice-container">
+      <p class="notice"><%= notice %></p>
+
+      <%= render @equipment %>
+
+      <div class="action-buttons">
+        <%= link_to "Edit this equipment", edit_equipment_path(@equipment), class: 'btn btn-primary' %> |
+        <%= link_to "Back to equipment", equipment_index_path, class: 'btn btn-secondary' %>
+
+        <%= button_to "Destroy this equipment", @equipment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

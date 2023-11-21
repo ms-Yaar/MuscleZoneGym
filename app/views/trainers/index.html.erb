@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trainers</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      margin-top: 50px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+
+    #trainers {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .trainer-card {
+      width: 30%;
+      margin: 10px;
+      padding: 15px;
+      background-color: #fff;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .trainer-card h2 {
+      margin: 0;
+      color: #007bff;
+    }
+
+    .trainer-card p {
+      color: #495057;
+      margin: 10px 0;
+    }
+
+    .show-link {
+      color: #007bff;
+      text-decoration: none;
+      margin-top: 10px;
+      display: inline-block;
+    }
+
+    .show-link:hover {
+      text-decoration: underline;
+    }
+
+    .new-link {
+      display: block;
+      margin-top: 20px;
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .new-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <p style="color: green"><%= notice %></p>
+
+    <h1>Trainers</h1>
+
+    <div id="trainers">
+      <% @trainers.each do |trainer| %>
+        <div class="trainer-card">
+          <%= render trainer %>
+          <p>
+            <%= link_to "Show this trainer", trainer, class: 'show-link' %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+
+    <%= link_to "New trainer", new_trainer_path, class: 'new-link' %>
+    <br>
+     <%= link_to 'member', members_path   %> 
+  </div>
+
+</body>
+</html>

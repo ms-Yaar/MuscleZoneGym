@@ -1,0 +1,201 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MuscleZoneGym</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #FFFFFF;
+      color: #495057;
+    }
+
+    header {
+      background-color: #333333; 
+  color: #fff; 
+  padding: 50px; 
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    }
+
+    .hero-section {
+      margin-bottom: 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      background-color: #343a40;
+      justify-content: center;
+      padding: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    }
+
+    nav li {
+      margin-right: 15px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    main {
+      max-width: 1300px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #C0C0C0;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #007bff;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 10px;
+    }
+
+    input {
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+    }
+
+    .submit-btn {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .back-link {
+      margin-top: 15px;
+      color: #007bff;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .testimonial-section {
+      margin-top: 20px;
+    }
+
+    .testimonial {
+      margin-bottom: 10px;
+    }
+
+    .notice,
+    .alert {
+      margin-top: 20px;
+    }
+
+    footer {
+      background-color: #343a40;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 50%;
+      <!--box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) 
+    }
+  </style>
+   
+</head>
+
+<body>
+ 
+  <header>
+    <div class="hero-section">
+      <h1>Welcome to MuscleZone</h1>
+    </div>
+  
+    <nav>
+      <ul>
+         <li><%= link_to "Homes", admins_path %></li>
+        <li><%= link_to "Admins", admins_path %></li>
+        <li><%= link_to "Equipment", equipment_index_path %></li>
+        <li><%= link_to "Members", members_path %></li>
+        <li><%= link_to "Swappers", swappers_path %></li>
+        <li><%= link_to "Trainers", trainers_path %></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    
+
+   <section class="testimonial-section">
+    <h2>What Our Members Say</h2>
+    <div class="testimonial">"The trainers are fantastic, and the classes are so much fun!"</div>
+    <div class="testimonial">"Joining this gym was the best decision for my fitness journey."</div>
+
+
+
+
+  
+  </section>
+
+  <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
+  <main>
+    <%= yield %>
+  </main>
+
+  <footer>
+    &copy; <%= Time.now.year %> MuscleZoneGym. All rights reserved.
+  </footer>
+
+</body>
+</html>
+
+
+<% if user_signed_in? %>
+    Logged in as <strong><%= current_user.email %></strong>
+    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar -Link' %> 
+    <%= button_to'Sign out', destroy_user_session_path, method: :delete %>
+    <% else %>
+    <%= link_to 'Sign Up', new_user_registration_path, :class => 'navbar-Link' %>
+    <%= link_to 'Login', new_user_session_path, :class => 'navbar-Link' %>
+    <% end %>
+
+
+
+
+
+
+

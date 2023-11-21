@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swappers Index</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      margin-top: 50px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+
+    #swappers {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .swapper-card {
+      width: 30%;
+      margin: 0 1.5%;
+      background-color: #fff;
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    p {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .notice {
+      color: green;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <p class="notice"><%= notice %></p>
+
+    <h1>Swappers</h1>
+
+    <div id="swappers">
+      <% @swappers.each do |swapper| %>
+        <div class="swapper-card">
+          <%= render swapper %>
+          <p>
+            <%= link_to "Show this swapper", swapper, class: 'btn' %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+
+    <%= link_to "New swapper", new_swapper_path, class: 'btn' %>
+  </div>
+
+</body>
+</html>

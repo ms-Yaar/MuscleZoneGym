@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admins</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      margin-top: 50px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+
+    #admins {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .admin-card {
+      width: 30%;
+      margin: 10px;
+      padding: 15px;
+      background-color: #fff;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .admin-card h2 {
+      margin: 0;
+      color: #007bff;
+    }
+
+    .admin-card p {
+      color: #495057;
+      margin: 10px 0;
+    }
+
+    .show-link {
+      color: #007bff;
+      text-decoration: none;
+      margin-top: 10px;
+      display: inline-block;
+    }
+
+    .show-link:hover {
+      text-decoration: underline;
+    }
+
+    .new-link {
+      display: block;
+      margin-top: 20px;
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .new-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <p style="color: green"><%= notice %></p>
+
+    <h1>Admins</h1>
+
+    <div id="admins">
+      <% @admins.each do |admin| %>
+        <div class="admin-card">
+          <%= render admin %>
+          <p>
+            <%= link_to "Show this admin", admin, class: 'show-link' %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+
+    <%= link_to "New admin", new_admin_path, class: 'new-link' %>
+  </div>
+
+</body>
+</html>

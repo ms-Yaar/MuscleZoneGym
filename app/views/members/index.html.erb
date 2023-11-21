@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Members</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      margin-top: 50px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #28a745;
+      margin-bottom: 20px;
+    }
+
+    #members {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .member-card {
+      width: 30%;
+      margin: 10px;
+      padding: 15px;
+      background-color: #fff;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .member-card h2 {
+      margin: 0;
+      color: #28a745;
+    }
+
+    .member-card p {
+      color: #495057;
+      margin: 10px 0;
+    }
+
+    .show-link {
+      color: #28a745;
+      text-decoration: none;
+      margin-top: 10px;
+      display: inline-block;
+    }
+
+    .show-link:hover {
+      text-decoration: underline;
+    }
+
+    .new-link {
+      display: block;
+      margin-top: 20px;
+      color: #28a745;
+      text-decoration: none;
+    }
+
+    .new-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <p style="color: green"><%= notice %></p>
+
+    <h1>Members</h1>
+
+    <div id="members">
+      <% @members.each do |member| %>
+        <div class="member-card">
+          <%= render member %>
+          <p>
+            <%= link_to "Show this member", member, class: 'show-link' %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+
+    <%= link_to "New member", new_member_path, class: 'new-link' %>
+  </div>
+<%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+
+</body>
+</html>

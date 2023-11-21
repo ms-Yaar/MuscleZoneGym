@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Swapper</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      margin-top: 50px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .form-container {
+      margin-top: 20px;
+    }
+
+    .actions {
+      margin-top: 20px;
+    }
+
+    .back-link {
+      text-decoration: none;
+      color: #333;
+      background-color: #e0e0e0;
+      padding: 10px 20px;
+      border-radius: 5px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>New Swapper</h1>
+
+    <div class="form-container">
+      <%= render "form", swapper: @swapper %>
+    </div>
+
+    <div class="actions">
+      <%= link_to "Back to swappers", swappers_path, class: 'back-link' %>
+    </div>
+  </div>
+
+</body>
+</html>
